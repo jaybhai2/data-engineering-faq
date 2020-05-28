@@ -1,21 +1,23 @@
-# some-interview-question
+## some-interview-question
 
-Linux 
+# Linux 
 1. Remove all file under certain path with certain date range: older than 30 day
 find /var/log -name "*.log" -type f -mtime +30 -exec rm -f {}  
 
-Rename all file with pattern 
-for f in *.jpg; do mv "$f" "$(echo "$f" | sed s/IMG/VACATION/)"; done
+### Rename all file with pattern 
+for f in *.jpg; 
+	do mv "$f" "$(echo "$f" | sed s/IMG/VACATION/)"; 
+	done
 
-Find distinct value from a file 
+### Find distinct value from a file 
 cut -d' ' -f2 list.txt | sort -u | wc -l
 | sort | uniq
 uniq -d gives only the duplicates, uniq -u gives only the unique ones (strips duplicates).
 
-Remove all file recursively 
+### Remove all file recursively 
 rm - R
 
-Linux command to check resource 
+### Linux command to check resource 
 free - m
 Vmstat -s 
 top	
@@ -23,8 +25,7 @@ htop
 Check running process
 ps -a /  ps -aux | less 		 ps aux | grep firefox
 
-
-Spark
+## Spark
 What is spark lineage graph?
 logical execution that log all RDD operation, and link each RDD transformation to its parent RDD
 In case of task failure, spark is able to reexecute the task using lineage graph in DAG. This is how spark achivev fault tolerance/resiliant 
