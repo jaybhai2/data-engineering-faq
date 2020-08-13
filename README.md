@@ -18,13 +18,14 @@ uniq -d gives only the duplicates, uniq -u gives only the unique ones (strips du
 rm - R
 
 ### 5) Linux command to check resource 
+```
 free - m
 Vmstat -s 
 top	
 htop
 Check running process
 ps -a /  ps -aux | less 		 ps aux | grep firefox
-
+```
 ## Spark
 ### 1) What is spark lineage graph?
 	logical execution that log all RDD operation, and link each RDD transformation to its parent RDD
