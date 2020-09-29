@@ -17,7 +17,7 @@
 ### 14) what are the biggest challent in you previou project, and how you solve?
 ### 15) what are you hoping to Develop in your next project?
 ### 16) arvo and parquet,
-
+### 17) what are some of the complex sql/transformation you written?
 
 
 # Linux 
