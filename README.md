@@ -18,6 +18,8 @@
 ### 15) what are you hoping to Develop in your next project?
 ### 16) arvo and parquet,
 
+
+
 # Linux 
 ### 1) Remove all file under certain path with certain date range: older than 30 day
 find /var/log -name "*.log" -type f -mtime +30 -exec rm -f {}  
@@ -92,6 +94,11 @@ Python:  string.join()
 ### 4) ACID
 	atomicity. one transaction either happen or not happen.
 	
+### 5) find duplicate at row level: select every column group by every column having count(*) >1
+
+### 6) compare two tables: select every column from (tables unioned) group by every column having count(*) >1
+
+
 ## Kafka
 ### 1) why do you need a publish and subscriber system?
 	to decouple, to isolate the write and process capability of source and consumption. 
