@@ -1,5 +1,23 @@
 ## some-interview-question
 
+# DataEngineering
+### 1) Data modelling: define entity, relationship and rules
+### 2) design schema of datawarehouse:  Snowflake and Star schema
+### 3) structured data, unstructured data example
+### 4) Hadoop Component: HDFS, MapRed, Yard
+### 5) explain map, shuffle, and reduce
+### 6) Spark Component: Master, Worker, resource manager
+### 7) Spark cluster mode and client mode
+### 8) Spark Narrow and wide transformation
+### 9) what database you worked with?
+### 10) what are some of the hive complex data type, Map,Struct,Array,Union,   what explode function do?
+### 11) UDF?
+### 12) external table, and internal table/ managed table?
+### 13) what is schema on read?
+### 14) what are the biggest challent in you previou project, and how you solve?
+### 15) what are you hoping to Develop in your next project?
+### 16) arvo and parquet,
+
 # Linux 
 ### 1) Remove all file under certain path with certain date range: older than 30 day
 find /var/log -name "*.log" -type f -mtime +30 -exec rm -f {}  
@@ -42,13 +60,25 @@ Python:  string.join()
 ### 3) wide transformation narrow transformation
 	wide - shuffle occur/ data move across the note -> groupby , reduceby, collect
 	narrow - map 
+### 4) RDD vs DataFrame vs Datasets
+
+### 5) Partitioning and Bucketing
+
+### 6) spark run out of memory:  driver out of memory on collect action, or executor our of memory
+
+### 7) How to turn a spark executor
+
+### 8) broadcast join?
+
+### 9) what are transformation, what are actions?
+
 
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
 	Select dept_id, employee_id, rank() over (partition by dept_id, order by salary desc) rnk from table where rnk < 3
 	Select alternative row
 	Select name, row_number() over (partition by id) row from xx where row_num %2 = 0
-
+ Rank and dense rank
 ### 2) Hive, complex data type : map   is similar to a dictionary in Python.
 	What is ‘Explode’ function 
 
