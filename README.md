@@ -64,7 +64,7 @@ Python:  string.join()
 
 ### 5) Partitioning and Bucketing
 
-### 6) spark run out of memory:  driver out of memory on collect action, or executor our of memory
+### 6) spark run out of memory:  driver out of memory on collect action, or executor our of memory on big partition
 
 ### 7) How to turn a spark executor
 
@@ -78,7 +78,7 @@ Python:  string.join()
 	Select dept_id, employee_id, rank() over (partition by dept_id, order by salary desc) rnk from table where rnk < 3
 	Select alternative row
 	Select name, row_number() over (partition by id) row from xx where row_num %2 = 0
- Rank and dense rank
+### Rank and dense rank
 ### 2) Hive, complex data type : map   is similar to a dictionary in Python.
 	What is ‘Explode’ function 
 
