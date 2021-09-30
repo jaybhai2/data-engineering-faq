@@ -1,4 +1,12 @@
 ## some-interview-question
+Intro:
+	data engineering falls under software engineer, this a specific discipline that require different set of skill. you manage the data life sycle, from its creation, its storage and its end use, and archiving. 
+	
+	you build the data infransturcture/or platform that is used in certain way such as, ingesting and storage of large volume of data, feed the data scienstis's machine learning model, drive the businees intellient/visuallization tool like tabluea, superset. 
+	
+	"""Most of the time these guys start as traditional solution architects for systems that involve SQL databases, web servers, SAP installations and other "standard" systems.
+But to create big data platforms the engineer needs to be an expert in specifying, setting up and maintaining big data technologies like: Hadoop, Spark, HBase, Cassandra, MongoDB, Kafka, Redis and more.""" by  andkret
+
 
 # DataEngineering
 ### 1) Data modelling: define entity, relationship and rules
