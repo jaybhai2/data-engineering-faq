@@ -33,6 +33,16 @@ you have to learning how to make these tool work together, because there is no f
 ### 18) Database design
 ### 19) System Design
 ### 20) Data structure and Algorithm 
+### what to consider when building a ETL pipeline:
+Data QA/validation infrastructure
+
+Error Handling and Logging
+
+Dashboard for tracking
+
+Data Lineage and Data Catalogs
+
+Metadata Database
 
 
 # Linux 
