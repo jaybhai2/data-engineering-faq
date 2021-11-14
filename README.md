@@ -3,7 +3,7 @@
 Intro:
 data engineering falls under software engineering, this a specific discipline that require different set of skill. you manage the data life cycle, from its creation, its storage and its end use, and archiving/maintenance. 
 
-you build the data infransturcture/or platform that is used in certain way such as, ingesting and storage of large volume of data, feed the data scienstis's machine learning model, drive the businees intelligennt/visuallization tool like tableau, superset. 
+you build the data infransturcture/or platform that is used in certain way such as, ingesting and storage of large volume of data, feed the data scienstis's machine learning model, drive the businees intelligennt/visuallization tool like tableau, powerBI, superset. 
 
 
 Most of the time these guys start as traditional solution architects for systems that involve SQL databases, web servers, SAP installations and other standard systems.
