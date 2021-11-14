@@ -11,7 +11,7 @@ But to create big data platforms the engineer needs to be an expert in specifyin
 
 you have to learning how to make these tool work together, because there is no framework that you can use to build a data infransture, you have to build a lot of tool youself. there is also no standard design pattern for building a pipeline. but you can take the priciple from software engineering like Open Close principle, or design pattern like factory design pattern to code your data pipeline.
 
-
+![This is an image](im/1.png)
 # DataEngineering
 ### 1) Data modelling: define entity, relationship and rules
 ### 2) design schema of datawarehouse:  Snowflake and Star schema
