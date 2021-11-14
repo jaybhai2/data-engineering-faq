@@ -30,6 +30,9 @@ you have to learning how to make these tool work together, because there is no f
 ### 15) what are you hoping to Develop in your next project?
 ### 16) arvo and parquet,
 ### 17) what are some of the complex sql/transformation you written?
+### 18) Database design
+### 19) System Design
+### 20) Data structure and Algorithm 
 
 
 # Linux 
