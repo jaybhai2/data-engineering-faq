@@ -7,22 +7,23 @@ Original file is located at
     https://colab.research.google.com/drive/13OM61QV_xMpw-FcX2qf_9mqoVGg5mjnE
 
 #1. Write a Python Program to print Prime Numbers between 100 and 200 ( Hint: for loop)
-"""
+```
 
 for num in range(100,200):
     if all(num%i!=0 for i in range (2,num)):
         print(num)
 
-"""#2. Write a Sort function to sort the elements in a list"""
-
+```
+#2. Write a Sort function to sort the elements in a list"""
+```
 l = [24, 55, 78, 64, 25, 12, 22, 11, 1,2,44,3,122, 23, 34]
 l.sort(reverse = True)
 
 print(l)
+```
+#3. Write a sorting function without using the list.sort function (descending order)
 
-"""#3. Write a sorting function without using the list.sort function (descending order)
-
-"""
+```
 
 data_list =  [24, 55, 78, 64, 25, 12, 22, 11, 1,2,44,3,122, 23, 34]
 new_list = []
@@ -37,8 +38,9 @@ while data_list:
 
 print(new_list)
 
-"""#4. Write a Python program to print Fibonacci Series"""
-
+```
+#4. Write a Python program to print Fibonacci Series"""
+```
 def F(n):
     if n == 0: return 0
     elif n == 1: return 1
@@ -46,9 +48,9 @@ def F(n):
 
 for i in range(0,12):
   print(F(i))
-
-"""#5. Write a Python program to print a list in reverse"""
-
+```
+#5. Write a Python program to print a list in reverse"""
+```
 li = [21,1,3,4,5,6,7,8,9,19,34,36,48,50,51]
 
 def rev(l):
@@ -56,8 +58,9 @@ def rev(l):
 
 rev(li)
 
-"""#6. Write a Python program to check whether a string is a Palindrome or not (Hint: A palindrome is a word, phrase, number or sequence of words that reads the same backward as forward. e.g. Madam)"""
-
+```
+#6. Write a Python program to check whether a string is a Palindrome or not (Hint: A palindrome is a word, phrase, number or sequence of words that reads the same backward as forward. e.g. Madam)"""
+```
 def isPalindrome(s): 
       
     # Using predefined function to  
@@ -71,35 +74,24 @@ def isPalindrome(s):
     return False
 isPalindrome("madam")
 
-"""Data Scientist Interview
-   
-   
-    Python 
-
-      C
-        o
-          D
-            E
-               
-                H
-                  E
-                    R
-                      **E**
+```
 
 #7. Write a Python program to print set of duplicates in a list
-"""
+```
 
 l = [1,2,3,4,4,5,5,6,1]
 print(set([x for x in l if l.count(x) > 1]))
 
-"""#8. Write a Python program to print number of words in a given sentence"""
-
+```
+#8. Write a Python program to print number of words in a given sentence"""
+```
 s = 'I am having a very nice day.'
 
 print(len(s.split()))
 
-"""#9. Given an array arr[] of n elements, write a Python function to search a given element x in arr[]."""
-
+```
+#9. Given an array arr[] of n elements, write a Python function to search a given element x in arr[]."""
+```
 def search(arr, x): 
   
     for i in range(len(arr)): 
@@ -115,8 +107,9 @@ l = [1,2,3,4,4,5,5,6,1]
 
 search(l,4)
 
-"""#10. Write a Python program to implement a Binary Search"""
-
+```
+#10. Write a Python program to implement a Binary Search"""
+```
 def binary_search(array, target):
     lower = 0
     upper = len(array)
@@ -137,10 +130,9 @@ def binary_search(array, target):
 
 binary_search(l,5)
 
-
-
-"""#11. Write a Python program to plot a simple bar chart"""
-
+```
+#11. Write a Python program to plot a simple bar chart"""
+```
 # import pandas and matplotlib 
 import pandas as pd 
 import matplotlib.pyplot as plt 
@@ -171,9 +163,10 @@ plt.xlabel("Age")
 plt.ylabel("Sales") 
 plt.show()
 
-"""#12. Write a Python program to join two strings (Hint: using join())
+```
+#12. Write a Python program to join two strings (Hint: using join())
 
-"""
+```
 
 # Using join() 
   
@@ -196,8 +189,9 @@ res = "".join((test_string, add_string))
 # print result 
 print("The concatenated string is : " + res)
 
-"""#13. Write a Python program to extract digits from given string"""
-
+```
+#13. Write a Python program to extract digits from given string"""
+```
 # initializing string 
 test_string = "1w3e4r5t6y7u7i8i"
   
@@ -210,9 +204,9 @@ res = ''.join(filter(lambda i: i.isdigit(), test_string))
       
 # print result 
 print("The digits string is : " + str(res))
-
-"""#14. Write a Python program to split strings using newline delimiter"""
-
+```
+#14. Write a Python program to split strings using newline delimiter"""
+```
 # Initialising string 
 ini_str = 'This is a test program'
   
@@ -225,9 +219,9 @@ res_list = (ini_str.rstrip().split(' '))
 # Printing result 
 print("Resultant prefix", str(res_list))
 
-"""
+```
 #15. Given a string as your input, delete any reoccurring character, and return the new string.
-"""
+```
 
 def deleteReoccurringCharacters(string):
 
@@ -241,3 +235,4 @@ def deleteReoccurringCharacters(string):
 
 
 deleteReoccurringCharacters("mississippi")
+```
