@@ -1,4 +1,8 @@
-## some-interview-question
+[linkedin-url]: https://linkedin.com/in/othneildrew
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+## Some-interview-question
 
 Intro:
 data engineering falls under software engineering, this a specific discipline that require different set of skill. you manage the data life cycle, from its creation, its storage and its end use, and archiving/maintenance. 
