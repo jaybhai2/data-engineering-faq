@@ -1,23 +1,25 @@
-[linkedin-url]: https://linkedin.com/in/othneildrew
-
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[linkedin-url]: https://linkedin.com/in/jayjayjohn
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+
 
 ## Some-interview-question
+<!-- TABLE OF CONTENTS -->
 
-Intro:
-data engineering falls under software engineering, this a specific discipline that require different set of skill. you manage the data life cycle, from its creation, its storage and its end use, and archiving/maintenance. 
+## Introduction to Data Engineering:
+Data engineering usually falls under Business Intelligent department of a company, this a specific discipline that require different set of skills. You manage the data life cycle - from its creation to its storage and to its end use, as well as archiving and maintenance. 
 
-you build the data infransturcture/or platform that is used in certain way such as, ingesting and storage of large volume of data, feed the data scienstis's machine learning model, drive the businees intelligennt/visuallization tool like tableau, powerBI, superset. 
+You build the data infransturcture/platform that is achieve the following: ingesting and storage of large volume of data, feed the data scienstis's machine learning model, drive the businees intelligent/visuallization tool like tableau, powerBI, superset. 
 
+"Most of the time these guys start as traditional solution architects for systems that involve SQL databases, web servers, SAP installations and other standard systems.
+But to create big data platforms the engineer needs to be an expert in specifying, setting up and maintaining big data technologies like: Hadoop, Spark, HBase, Cassandra, MongoDB, Kafka, Redis and more." - by  andkret
 
-Most of the time these guys start as traditional solution architects for systems that involve SQL databases, web servers, SAP installations and other standard systems.
-But to create big data platforms the engineer needs to be an expert in specifying, setting up and maintaining big data technologies like: Hadoop, Spark, HBase, Cassandra, MongoDB, Kafka, Redis and more. - by  andkret
+You have to learning how to make these tool work together, because there is no framework that you can use to build a data infransture, you have to build a lot of tool youself. there is also no standard design pattern for building a pipeline. but you can take the priciple from software engineering like Open Close principle, or design pattern like factory design pattern to code your data pipeline.
 
-you have to learning how to make these tool work together, because there is no framework that you can use to build a data infransture, you have to build a lot of tool youself. there is also no standard design pattern for building a pipeline. but you can take the priciple from software engineering like Open Close principle, or design pattern like factory design pattern to code your data pipeline.
 
 ![This is an image1](im/1.png)
 # DataEngineering
-### 1) Data modelling: define entity, relationship and rules
+### 1) Data modeling: define entity, relationship and rules
 ### 2) design schema of datawarehouse:  Snowflake and Star schema
 ### 3) structured data, unstructured data example
 ### 4) Hadoop Component: HDFS, MapRed, Yard
@@ -47,6 +49,69 @@ Dashboard for tracking
 Data Lineage and Data Catalogs
 
 Metadata Database
+
+# New
+### Query performance
+indexing, partition, avoid correlated query, 
+
+### large delete operation
+large delete operation will hang the database,  so batch delete instead - specific data range, loop through the range and perform delete. batch delete will release the resouce upon each batch completion where as large deletion will block other transaction.
+
+
+### SQL find distance drove by each diver
+```
+driver_id, vehicle_id, odometer_reading, date
+1	 ,  100      , 10              , 2022-01-01
+1	 ,  100      , 25              , 2022-01-02
+1	 ,  100      , 30              , 2022-01-03
+2	 ,  100      , 60              , 2022-01-04
+2	 ,  100      , 70              , 2022-01-05
+2        ,  200      , 50              , 2022-01-06
+1        ,  100      , 100             , 2022-01-06
+
+note: a vehicle can be drived by different driver at different date, odometer_reading capture the current reading when driver start to use that vehicle in the day.
+a driver can drive a vehicle and and come by to the vehicle at different date
+
+this DOES NOT work
+lag(odometer_reading) over (partition by driver_id, vehicle_id order by date asc) as previous_reading
+=>
+driver_id, vehicle_id, odometer_reading,previous_reading, date 
+1	 ,  100      , 10              ,null            , 2022-01-01
+1	 ,  100      , 25              ,10                2022-01-02,  
+1	 ,  100      , 30              ,25                2022-01-03,  
+2	 ,  100      , 60              ,null              2022-01-04,
+2	 ,  100      , 70              ,60                2022-01-05
+2        ,  200      , 50              ,null              2022-01-06
+2        ,  200      , 80              ,50                2022-01-07
+1        ,  100      , 100             ,30                2022-01-08   *** this is wrong, artition by driver_id, vehicle_id, skip the mile drove by user 2, should be 70 (the reading from 2022-01-05 drove by user 2)
+
+if you do, over (partition by vehicle_id 
+this will not work either 
+2	 ,  100      , 70              ,60                2022-01-05
+2        ,  200      , 50              ,null              2022-01-06
+2        ,  200      , 80              ,50                2022-01-07
+1        ,  100      , 100             ,70***             2022-01-08   70 is from user 2, 100-70 = 30 is actually drove by user 2 at 2022-01-05
+
+*** Correct Solution
+lead(odometer_reading) over (partition by vehicle_id order by date asc) as next_reading
+driver_id, vehicle_id, odometer_reading,next_reading   , date 
+1	 ,  100      , 10              ,25            , 2022-01-01
+1	 ,  100      , 25              ,30                2022-01-02,  
+1	 ,  100      , 30              ,60                2022-01-03,  
+2	 ,  100      , 60              ,70              2022-01-04,
+2	 ,  100      , 70              ,100                2022-01-05
+2        ,  200      , 50              ,80              2022-01-06
+2        ,  200      , 80              ,null                2022-01-07
+1        ,  100      , 100             ,null                2022-01-08 
+
+next_reading - odometer_reading = distance user drove for current date.
+next_reading is the starting odometer_reading of whoever use the vehicle next day.
+
+in last row, we dont know what happen after 2022-01-08 so we can not calcuale the distance. 
+
+```
+
+
 
 
 # Linux 
