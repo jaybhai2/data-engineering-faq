@@ -111,6 +111,26 @@ in last row, we dont know what happen after 2022-01-08 so we can not calcuale th
 
 ```
 
+### SQL find customer tenure 
+```
+customer_id, activity, timestamp
+1, log in, 2020-01-01
+2,  log in, 2020-02-01
+1, log in, 2020-03-01
+2, log in, 2020-05-01
+3, log in, 2020-04-01
+
+## find the first time the customer ever log in (new customer),
+## find the most recent time the customer logged in. 
+## substract them
+
+group the customer into group based on tenure with 30 day increment. 0-30day group1, 30-60 day group2, etc
+
+select FLOOR(tenure / 30 ) , xxx, group by FLOOR(tenure / 30 )
+
+```
+
+
 
 
 
