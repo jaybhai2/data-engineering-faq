@@ -109,6 +109,29 @@ next_reading is the starting odometer_reading of whoever use the vehicle next da
 
 in last row, we dont know what happen after 2022-01-08 so we can not calcuale the distance. 
 
+create table trips (
+    trip_id serial primary key,
+    driver_id int,
+    vehicle text,
+    starting_mileage int,
+    date text
+);
+
+insert into trips(driver_id, vehicle, starting_mileage, date ) values (
+1, 'Tesla', 100, '2023-01-02'),
+(1, 'Tesla', 150, '2023-01-03'),
+(2, 'Tesla', 230, '2023-01-05'),
+(1, 'Honda', 220, '2023-01-05'),
+(3, 'Honda', 300, '2023-01-06'),
+(3, 'Honda', 400, '2023-01-07'),
+(1, 'Tesla', 300, '2023-01-07'),
+(2, 'Honda', 530, '2023-01-08')
+;
+
+
+Given a table with driver_id, vehicle, starting_mileage, date
+Find number of miles each driver drove per date.
+
 ```
 
 ### SQL find customer tenure 
