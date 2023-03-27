@@ -1,6 +1,3 @@
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[linkedin-url]: https://linkedin.com/in/jayjayjohn
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 
 
 ## Some-interview-question
@@ -212,6 +209,7 @@ Python:  string.join()
 
 ### 9) what are transformation, what are actions?
 
+### 10) optimization techique:  Push down partition filter, use broast variable, cache the dataframe if reused (after a action eg. save()), dont use UDF, use built in function as much as you can, use map partition for heavy initialization task (connecting to db/ initiating a ML model).  
 
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
