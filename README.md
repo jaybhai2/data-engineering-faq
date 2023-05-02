@@ -209,7 +209,15 @@ Python:  string.join()
 
 ### 9) what are transformation, what are actions?
 
-### 10) optimization techique:  Push down partition filter, use broast variable, cache the dataframe if reused (after a action eg. save()), dont use UDF, use built in function as much as you can, use map partition for heavy initialization task (connecting to db/ initiating a ML model).  
+### 10) optimization techique:  
+
+1. Push down partition filter, 
+2. use broast variable, 
+cache the dataframe if reused (after a action eg. save()), 
+dont use UDF, use built in function as much as you can, 
+use map partition for heavy initialization task (connecting to db/ initiating a ML model).  
+when dealing with large dataset onheap, Garbage collection can take long time to scan and free up the memory. using offhead might be better choice
+
 
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
