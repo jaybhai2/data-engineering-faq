@@ -213,12 +213,13 @@ Python:  string.join()
 
 1. Push down partition filter, 
 2. use broast variable, 
-3. cache the dataframe if reused (after a action eg. save()), 
+3. cache the dataframe if reused (after a action eg. save()), or used by two operations.
 4. dont use UDF, use built in function as much as you can, 
-5. use map partition for heavy initialization task (connecting to db/ initiating a ML model).  
+5. use map_partition or for_each_partition for heavy initialization task (connecting to db/ initiating a ML model).  
 6. when dealing with large dataset onheap, simply increase the executor memory might not help. Garbage collection can take long time to scan and free up the memory. using offhead might be better choice
 7. enable broadcast join for joining of small table and large table
-8. Choose right instance type, memory optimized vs compute optimized
+8. Choose right instance type, memory optimized vs compute optimized, c7g vs c5
+9. in some case where you have mathematical operation on a column, you can use pandas_udf to take divantage of the vectorized processing in pandas series.
 
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
