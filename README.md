@@ -220,6 +220,8 @@ Python:  string.join()
 7. enable broadcast join for joining of small table and large table
 8. Choose right instance type, memory optimized vs compute optimized, c7g vs c5
 9. in some case where you have mathematical operation on a column, you can use pandas_udf to take divantage of the vectorized processing in pandas series.
+10. dont use withColumn in a loop: This method introduces a projection internally. Therefore, calling it multiple times, for instance, via loops in order to add multiple columns can generate big plans which can cause performance issues and even StackOverflowException. To avoid this, use select() with multiple columns at once.
+11. use withColumns(dict(name, column)) new in v3.3
 
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
