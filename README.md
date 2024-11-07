@@ -222,7 +222,12 @@ Python:  string.join()
 9. in some case where you have mathematical operation on a column, you can use pandas_udf to take divantage of the vectorized processing in pandas series.
 10. dont use withColumn in a loop: This method introduces a projection internally. Therefore, calling it multiple times, for instance, via loops in order to add multiple columns can generate big plans which can cause performance issues and even StackOverflowException. To avoid this, use select() with multiple columns at once.
 11. use withColumns(dict(name, column)) new in v3.3
-
+12. coalesce(1), becareful when use this, spark optimizer effectively push down this operation to as early as possible, like. when you have `load().filter().coalesce(1).save()` it becomes`load().coalesce(1).filter().save()`, which make the filter operate on only 1 task. the only workaround is to force a action after the tranformation,
+13. ```
+       df1 = load().filter().coalesce(1).cache()
+       df1.count()
+       df1.save()
+```
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
 	Select dept_id, employee_id, rank() over (partition by dept_id, order by salary desc) rnk from table where rnk < 3
