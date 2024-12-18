@@ -227,6 +227,8 @@ Python:  string.join()
        df1 = load().filter().coalesce(1).cache()
        df1.count()
        df1.save()
+14. small file problem. compact the file, adapot delta format, avoid small file in the first place by repartition the dataframe before writting. 
+15. learn to use Spark UI or cluster metric. 
 ```
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
