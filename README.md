@@ -212,15 +212,15 @@ Python:  string.join()
 ### 10) optimization techique:  
 
 1. Push down partition filter, 
-2. use broast variable, 
-3. cache the dataframe if reused (after a action eg. save()), or used by two operations.
-4. dont use UDF, use built in function as much as you can, 
-5. use map_partition or for_each_partition for heavy initialization task (connecting to db/ initiating a ML model).  
-6. when dealing with large dataset onheap, simply increase the executor memory might not help. Garbage collection can take long time to scan and free up the memory. using offhead might be better choice
+2. Use broast variable
+3. cache the dataframe if its dataframed is reused by multiple action (ie. save())
+4. Dont use UDF, use built in function as much as you can, 
+5. Use map_partition or for_each_partition for heavy initialization task (connecting to db / initiating a ML model).  
+6. When dealing with large dataset onheap, simply increase the executor memory might not help because Garbage collection can take long time to scan and free up the memory. Using offhead might be better choice
 7. enable broadcast join for joining of small table and large table
 8. Choose right instance type, memory optimized vs compute optimized, c7g vs c5
-9. in some case where you have mathematical operation on a column, you can use pandas_udf to take divantage of the vectorized processing in pandas series.
-10. dont use withColumn in a loop: This method introduces a projection internally. Therefore, calling it multiple times, for instance, via loops in order to add multiple columns can generate big plans which can cause performance issues and even StackOverflowException. To avoid this, use select() with multiple columns at once.
+9. In some case where you have mathematical operation on a column, you can use pandas_udf to take divantage of the vectorized processing in pandas series.
+10. dont use withColumn in a loop: This method introduces a projection internally. Therefore, calling it multiple times, for instance, via loops in order to add multiple columns can generate large logical plans which can cause performance issues and even StackOverflowException in driver. To avoid this, use select() with multiple columns at once. or use withColumns (new in 3.3)
 11. use withColumns(dict(name, column)) new in v3.3
 12. coalesce(1), becareful when use this, spark optimizer effectively push down this operation to as early as possible, like. when you have `load().filter().coalesce(1).save()` it becomes`load().coalesce(1).filter().save()`, which make the filter operate on only 1 task. the only workaround is to force a action after the tranformation,
 13. ```
