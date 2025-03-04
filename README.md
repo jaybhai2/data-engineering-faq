@@ -228,7 +228,10 @@ Python:  string.join()
        df1.count()
        df1.save()
 14. small file problem. compact the file, adapot delta format, avoid small file in the first place by repartition the dataframe before writting. 
-15. learn to use Spark UI or cluster metric. 
+15. learn to use Spark UI or cluster metric.
+16. when doing delta streaming, set maxBytePerTrigger or MaxFilePerTrigger to cap each micro batch to ensure micro batch does not run OOM when there are data spike
+
+
 ```
 ## SQL/Hive 
 ### 1) find top 3 paying employee from each department 
