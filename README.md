@@ -50,7 +50,7 @@ Metadata Database
 
 # New
 ### Query performance
-indexing, partition, avoid correlated query, 
+indexing, partition, avoid correlated query, ensure pushdown partition is applied, small file profile, 
 
 ### large delete operation
 large delete operation will hang the database,  so batch delete instead - specific data range, loop through the range and perform delete. batch delete will release the resouce upon each batch completion where as large deletion will block other transaction.
@@ -230,7 +230,8 @@ Python:  string.join()
 14. small file problem. compact the file, adapot delta format, avoid small file in the first place by repartition the dataframe before writting. 
 15. learn to use Spark UI or cluster metric.
 16. when doing delta streaming, set maxBytePerTrigger or MaxFilePerTrigger to cap each micro batch to ensure micro batch does not run OOM when there are data spike, ensurinhg consistent amount of record in every micro batch
-17. Often using a smaller number of large instance will be better than large number of small instance,  due to reduced shuffle and increased momery per node, and reduced overhead.
+17. Often using a smaller number of large instance will be better than large number of small instance,  due to reduced shuffle and increased momery per node, and reduced overhead. 
+18. Saving storage cost, by using different S3 storage tier. 
 
 
 ```
