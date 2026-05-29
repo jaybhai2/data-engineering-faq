@@ -211,7 +211,7 @@ Python:  string.join()
 
 ### 10) optimization techique:  
 
-1. Push down partition filter, 
+1. Alwasy be aware of push down partition filter, 
 2. Use broast variable
 3. cache the dataframe if its dataframed is reused by multiple action (ie. save())
 4. Dont use UDF, use built in function as much as you can, 
@@ -231,7 +231,8 @@ Python:  string.join()
 15. learn to use Spark UI or cluster metric.
 16. when doing delta streaming, set maxBytePerTrigger or MaxFilePerTrigger to cap each micro batch to ensure micro batch does not run OOM when there are data spike, ensurinhg consistent amount of record in every micro batch
 17. Often using a smaller number of large instance will be better than large number of small instance,  due to reduced shuffle and increased momery per node, and reduced overhead. 
-18. Saving storage cost, by using different S3 storage tier. 
+18. Saving storage cost, by using different S3 storage tier. Enable intellegent tiering.
+19. Kinesis Stream,  adjust minFetchPerid, MaxFetchDuration, triggerTime to control your batch size. Ensure your processing time are within the trigger Interval. For a very large scale stream with 100+ shard and large volume of data, ensure you use full 2mb/s of read throughput. If there is another consumer, Stream owner should allow for EFO consumer. usually 1mb/s read is enough as the read throughput is capped at 1mb/s too. but under the case where processing slows down temporarly(instance restart etc), >1mb/s read allow your stream to quickly catch up.  Kinesis stream writer should have shard balanced, no skewed shard, when data volume grow they should add more shard.
 
 
 ```
