@@ -38,6 +38,7 @@ You have to learning how to make these tool work together, because there is no f
 ### 20) Data structure and Algorithm 
 ### 21) spark, what are the challenge/con of spark?  - Non ACID, C:consistence, spark save mode overwrite is delete and write operation, data loss when runtime exception occured,     No schema enforcement,  Small file problem in real scienario, (large volume of small files creat overhead in spark driver to maintain the file list, and meta data, opening/closing IO, ineffective compression)
 ### what to consider when building a ETL pipeline:
+### 22) compression algorithom, cpu vs storage,  snappy give faster read and write, but large file size. zstd offer 40% smaller file size only a bit slower read/write. Databricks now default the compression to zstd, it has optmized decompresssion mechanics.
 Data QA/validation infrastructure
 
 Error Handling and Logging
